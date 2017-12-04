@@ -28,27 +28,14 @@ def check_for_anagrams(passphrase):
 
 
 if __name__ == "__main__":
+
     infile = open("input.txt", "r")
     lines_with_duplicates = [are_duplicates(line) for line in infile.readlines()]
-    
-    num_valid = 0
-    for line in lines_with_duplicates:
-        if line==False:
-            num_valid += 1
-    
-
+    num_valid = lines_with_duplicates.count(False)
     print(f"{num_valid} do not have duplicates")
-
-
     infile.close()
     
     infile = open("input.txt", "r")
     lines_with_anagrams = [check_for_anagrams(line) for line in infile.readlines()]
-
-    num_valid = 0
-    for line in lines_with_anagrams:
-        if line==False:
-            num_valid += 1
-
-
+    num_valid = lines_with_anagrams.count(False)
     print(f"{num_valid} do not have anagrams")
